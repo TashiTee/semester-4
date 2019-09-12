@@ -1,0 +1,36 @@
+{
+  "name": "web422-summer-2019-assignment1",
+  "private": true,
+  "version": "1.0.0",
+  "description": "WEB422 Summer 2019 Assignment 1",
+  "scripts": {
+    "mkdir": "mkdirp assignment1-submission",
+    "eslint-to-file": "npm run eslint 1> assignment1-submission/eslint.log 2>&1",
+    "eslint": "eslint src/**/*.js",
+    "prettier": "prettier --single-quote es5 --write \"src/**/*.{html,js,css}\"",
+    "prezip": "rimraf assignment1-submission.zip",
+    "zip": "bestzip assignment1-submission.zip assignment1-submission/*",
+    "copy-src": "copyfiles package*.json src/*.html src/**/* assignment1-submission",
+    "prepare-submission": "run-s -n -c prettier mkdir copy-src eslint-to-file zip",
+    "clean": "rimraf assignment1-submission.zip assignment1-submission",
+    "server": "http-server src",
+    "start": "npm run server"
+  },
+  "devDependencies": {
+    "bestzip": "^2.1.2",
+    "copyfiles": "^2.1.0",
+    "eslint": "^5.12.0",
+    "eslint-plugin-jquery": "^1.5.0",
+    "http-server": "^0.11.1",
+    "mkdirp": "^0.5.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.15.3",
+    "rimraf": "^2.6.3"
+  },
+  "main": ".eslintrc.js",
+  "dependencies": {
+    "pretty-print-json": "^0.1.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
